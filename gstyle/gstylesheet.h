@@ -2,6 +2,7 @@
 #define _G_STYLESHEET
 
 #include <glib-object.h>
+#include <libcroco/libcroco.h>
 
 G_BEGIN_DECLS
 
@@ -33,6 +34,14 @@ typedef struct {
 GType g_stylesheet_get_type (void);
 
 GStylesheet* g_stylesheet_new (void);
+
+GStylesheet* g_stylesheet_new_from_file (const gchar *filename,
+                                         GError      **error);
+
+gboolean     g_stylesheet_get_property (GStylesheet  *stylesheet,
+                                        CRNode const *node,
+                                        const gchar  *property_name,
+                                        gchar        **property);
 
 G_END_DECLS
 
