@@ -12,5 +12,6 @@ AC_SUBST(GSTYLE_LIBS)
 AC_CONFIG_FILES(
   Makefile
   gstyle/Makefile
+  tests/Makefile
 )
 AC_OUTPUT

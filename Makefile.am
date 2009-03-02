@@ -1,1 +1,2 @@
 SUBDIRS=gstyle
+SUBDIRS+=tests

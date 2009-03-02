@@ -1,0 +1,46 @@
+button {
+  background: red;
+  color: green; 
+  /* green text on red background ... no luck for color blind people */
+}
+
+notebook {
+  background: white;
+  color: black;
+}
+
+notebook > tab:first-child {
+  background: yellow;
+  color: red;
+}
+
+notebook > tab * button {
+  background: none; 
+  /*
+   * Do not fill in the background for "normal" buttons
+   * ie. relief-style == NONE in GTK+
+   */
+  color: inherit;
+}
+
+/* Expected result:
+ * I am not sure what the CSS standard says about this, but in my oppinion the
+ * "button" style should have precedence over the "notebook::tab" and 
+ * notebook styles usually. Except for the button in the last tab, which does 
+ * not draw a background, and should therefore inherit the color.
+ */
+
+treeview > row {
+  background: white;
+  color: black;
+}
+
+treeview > row:nth-child(odd) {
+  background: "#d0d0d0";
+}
+
+/*
+ * Here wwe theme the odd rows darker. Note that the "color" is not set, and
+ * will therefore come from the normal "row" theming. Note also the button in 
+ * the treeview row, it needs to get the buttons style and text color!
+ */
